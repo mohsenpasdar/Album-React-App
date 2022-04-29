@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter'
 
-// fetch('https://jsonplaceholder.typicode.com/albums')
-//   .then(response => response.json())
-//   .then(json => console.log(json))
 
+
+const store = configureStore();
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppRouter />
+    {jsx}
   </React.StrictMode>
 );
 

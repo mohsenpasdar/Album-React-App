@@ -6,4 +6,4 @@ const HelpPage = () => (
   </div>
 );
 
-export { HelpPage as default };
+export default HelpPage;

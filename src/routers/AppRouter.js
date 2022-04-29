@@ -12,7 +12,7 @@ const AppRouter = () => (
       <Header />
       <Routes>
         <Route path="/" element={ <HomePage /> } exact={true} />
-        <Route path="/album" element={ <AlbumPage /> } />
+        <Route path="/album/:id" element={ <AlbumPage /> } />
         <Route path="/help" element={ <HelpPage /> } />
         <Route path="*" element={ <NotFoundPage /> } />
       </Routes>
