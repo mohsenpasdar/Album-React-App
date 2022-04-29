@@ -5,7 +5,7 @@ const Header = () => (
   <header>
     <h1>My album App</h1>
     <NavLink to="/">Home Page</NavLink>
-    <NavLink to="/album">Album Page</NavLink>
+    <NavLink to="/help">Help Page</NavLink>
   </header>
 );
 
