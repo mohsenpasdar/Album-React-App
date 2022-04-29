@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import AppRouter from './routers/AppRouter'
+
+// fetch('https://jsonplaceholder.typicode.com/albums')
+//   .then(response => response.json())
+//   .then(json => console.log(json))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div>My new Content</div>
+    <AppRouter />
   </React.StrictMode>
 );
 
