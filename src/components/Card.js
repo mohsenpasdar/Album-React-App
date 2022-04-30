@@ -7,20 +7,11 @@ import { connect } from 'react-redux';
 const Card = (props) => {
 
   return (
-
     <div>
-      
-      {props.albums.map((album) => {
-        return (
-          <div key={album.id}>
-            <Link to={`/album/${album.id}`}>
-              album title: {album.title}
-
-            </Link>
-
-          </div>
-        )
-      })}
+      <Link to={`/album/${props.album.id}`}>
+        album title: {props.album.title}
+        <img src={require("../images/logo192.png")} />
+      </Link>
 
     </div>
   )

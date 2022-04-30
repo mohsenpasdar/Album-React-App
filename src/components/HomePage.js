@@ -13,8 +13,9 @@ import Card from './Card'
 const HomePage = (props) => (
   <div>
     <h1>This is my HomePage</h1>
-
-    <Card albums={props.albums}/>
+    {props.albums.map((album) => (
+      <Card album={album} key={album.id} />
+    ))}
 
   </div>
 )
