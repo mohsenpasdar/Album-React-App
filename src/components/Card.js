@@ -9,7 +9,7 @@ const Card = (props) => {
   return (
 
     <div>
-      <img src="zahra.jpg" />
+      
       {props.albums.map((album) => {
         return (
           <div key={album.id}>
