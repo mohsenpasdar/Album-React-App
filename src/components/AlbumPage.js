@@ -2,13 +2,15 @@ import React from 'react';
 import { connect, useSelector  } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-const AlbumPage = () => {
-  const { id } = useParams();
-  const album = useSelector((state) => state.albums[id-1]);
+const AlbumPage = (props) => {
+  const params = useParams();
+  const id = parseInt(params.id)
+  const album = props.albums.find((album) => album.id === id);
+  
   return (
     <div>
       <h1>Album Page</h1>
-      <p>this is list from album {id}</p>
+      <p>this is list from album {album.id}</p>
 
       {album.list.map((pic) => (
         <div key={pic}>
@@ -22,4 +24,10 @@ const AlbumPage = () => {
   )
 }
 
-export default AlbumPage
+const mapStateToProps = (state) => {
+  return {
+    albums: state.albums
+  }
+}
+
+export default connect(mapStateToProps)(AlbumPage)

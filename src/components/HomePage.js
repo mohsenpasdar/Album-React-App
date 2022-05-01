@@ -10,6 +10,7 @@ import Card from './Card'
 // console.log(albums);
 // console.log(typeof(albums));
 
+
 const HomePage = (props) => (
   <div>
     <h1>This is my HomePage</h1>

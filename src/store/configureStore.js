@@ -9,7 +9,7 @@ const albumsReducerDefaultState = [
 const store = () => (
   createStore((state={}) => {
     return {
-      albums: albumsReducerDefaultState
+      albums: albumsReducerDefaultState,
     }
   }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 )
