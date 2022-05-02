@@ -1,30 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Card from './Card'
 
-// const albums = fetch('https://jsonplaceholder.typicode.com/albums')
-//   .then(response => response.json())
-//   .then(json => console.log(json))
+const HomePage = () => {
+  const [state, setState] = useState({
+    albums: [],
+    loaded: false
+  });
 
-// console.log(albums);
-// console.log(typeof(albums));
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/albums')
+      .then(response => response.json())
+        .then(json => {
+          setState({
+            albums: json,
+            loaded: true
+          })
+        })
+  }, [])
 
-
-const HomePage = (props) => (
-  <div>
-    <h1>This is my HomePage</h1>
-    {props.albums.map((album) => (
-      <Card album={album} key={album.id} />
-    ))}
-
-  </div>
-)
-
-const mapStateToProps = (state) => {
-  return {
-    albums: state.albums
+  if (!state.loaded) {
+    return (
+      <div>Please Wait ... </div>
+    )
   }
+
+  return (
+    <div>
+      <img src={require("../images/logo192.png")} />
+      {state.albums.map((album) => (
+        <Card album={album} key={album.id} />
+      ))}
+    </div>
+  )
 }
 
-export default connect(mapStateToProps)(HomePage)
+export default HomePage

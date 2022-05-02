@@ -10,7 +10,7 @@ const Card = (props) => {
     <div>
       <Link to={`/album/${props.album.id}`}>
         album title: {props.album.title}
-        <img src={require("../images/logo192.png")} />
+
       </Link>
 
     </div>
