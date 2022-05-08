@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import Card from './Card'
 
 const HomePage = () => {
@@ -27,7 +26,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <img src={require("../images/logo192.png")} />
+      <img src={require("../images/logo192.png")} alt="react logo" />
       {state.albums.map((album) => (
         <Card album={album} key={album.id} />
       ))}

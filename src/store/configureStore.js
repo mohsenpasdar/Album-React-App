@@ -1,17 +1,19 @@
-import { createStore, combineReducers } from 'redux';
-
-const albumsReducerDefaultState = [
-  {id: 1, title: 'one', list: ["a", "b", "c", "d"]},
-  {id: 2, title: 'two', list: ["e", "f", "g", "h"]},
-  {id: 3, title: 'three', list: ["i", "j", "k", "l"]}
-];
+import { createStore } from 'redux';
 
 const store = () => (
-  createStore((state={}) => {
-    return {
-      albums: albumsReducerDefaultState,
+  createStore((state = {}, action) => {
+    switch (action.type) {
+      case 'GET_ID':
+        return {
+          albumId: action.id
+        }
+      default:
+        return state
     }
+
   }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 )
+
+
 
 export { store as default }

@@ -4,17 +4,27 @@ import { connect } from 'react-redux';
 
 
 
-const Card = (props) => {
+class Card extends React.Component {
 
-  return (
-    <div>
-      <Link to={`/album/${props.album.id}`}>
-        album title: {props.album.title}
 
-      </Link>
+  handleClick = () => {
+    this.props.dispatch({
+      type: 'GET_ID',
+      id: this.props.album.id
+    })
+  }
+  render() {
+    return (
+      <div>
+        <Link to={`/album/${this.props.album.id}`} onClick={this.handleClick}>
+          album title: {this.props.album.title}
+        </Link>
 
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
-export { Card as default }
+
+
+export default connect()(Card)

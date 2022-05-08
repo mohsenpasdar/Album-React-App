@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useSelector  } from 'react-redux';
+import { useParams, useNavigate } from "react-router-dom";
 
-import { useParams } from "react-router-dom";
-
-const AlbumPage = () => {
-  const params = useParams();
-  const id = parseInt(params.id)
-
+const AlbumPage = (props) => {
+  // const params = useParams();
+  // const id = parseInt(params.id);
+  const id = props.albumId
   const [state, setState] = useState({
     album: [],
     loaded: false
@@ -21,6 +20,14 @@ const AlbumPage = () => {
             loaded: true
           })
         })
+  }, [])
+
+  // in case http://localhost:3000/album/:id first loads i.e.: when there is no albumId
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (!props.albumId) {
+      navigate("/");
+    }
   }, [])
 
 
@@ -42,4 +49,6 @@ const AlbumPage = () => {
   )
 }
 
-export default AlbumPage
+const mapStateToProps = (state) => state
+
+export default connect(mapStateToProps)(AlbumPage)
