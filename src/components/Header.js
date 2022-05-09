@@ -2,10 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => (
-  <header>
-    <h1>My album App</h1>
-    <NavLink to="/">Home Page</NavLink>
-    <NavLink to="/help">Help Page</NavLink>
+  <header className='header'>
+    <div className="content-container">
+      <div className='header__content'>
+        <NavLink className="header__title" to="/"><h1>Home</h1></NavLink>
+        <NavLink className="header__title" to="/help"><h1>Help</h1></NavLink>
+      </div>
+    </div>
+
   </header>
 );
 

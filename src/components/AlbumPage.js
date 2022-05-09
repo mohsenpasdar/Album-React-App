@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { connect, useSelector  } from 'react-redux';
-import { useParams, useNavigate } from "react-router-dom";
+import { connect } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import LoadingPage from './LoadingPage';
+// import { useParams, useNavigate } from "react-router-dom";
 
 const AlbumPage = (props) => {
   // const params = useParams();
@@ -33,16 +35,17 @@ const AlbumPage = (props) => {
 
   if (!state.loaded) {
     return (
-      <div>Please Wait ... </div>
+      <LoadingPage />
     )
   }
 
   return (
-    <div>
-      <img src={require("../images/logo192.png")} />
-      <p>list of pictures from album id: {id}</p>
+    <div className='album'>
+      <h1>list of pictures from albumId: {id}</h1>
       {state.album.map((picture) => (
-        <div key={picture.id}>{picture.title}</div>
+        <ul key={picture.id}>
+          <li>{picture.title}</li>
+        </ul>
       ))}
 
     </div>

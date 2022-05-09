@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card'
+import Card from './Card';
+import LoadingPage from './LoadingPage';
 
 const HomePage = () => {
   const [state, setState] = useState({
@@ -20,13 +21,12 @@ const HomePage = () => {
 
   if (!state.loaded) {
     return (
-      <div>Please Wait ... </div>
+      <LoadingPage />
     )
   }
 
   return (
-    <div>
-      <img src={require("../images/logo192.png")} alt="react logo" />
+    <div className="albums">
       {state.albums.map((album) => (
         <Card album={album} key={album.id} />
       ))}

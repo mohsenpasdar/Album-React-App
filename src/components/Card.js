@@ -15,9 +15,10 @@ class Card extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Link to={`/album/${this.props.album.id}`} onClick={this.handleClick}>
-          album title: {this.props.album.title}
+      <div className="card">
+        <Link className="card__body" to={`/album/${this.props.album.id}`} onClick={this.handleClick}>
+          <img src="/logo192.png" alt="react logo" />
+          <p>{this.props.album.title}</p>
         </Link>
 
       </div>
